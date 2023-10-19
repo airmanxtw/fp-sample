@@ -26,7 +26,7 @@ export const useMonads = () => {
   ])
 
   //評估bmi結果
-  const evaluate = (bmi: Result<number, string>) =>
+  const evaluate = (bmi: Result<number, string>): Result<string, string> =>
     bmi.isOk() ? Ok(evaluateCond(bmi.unwrap())) : Err(bmi.unwrapErr())
 
   //bmi計算器
