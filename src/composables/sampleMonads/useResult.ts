@@ -12,7 +12,8 @@ export const useResult = () => {
       : Ok(PV * Math.pow(1 + R, n))
 
   // 評估是否完成目標
-  const decision = (FV: number, price: number): boolean => FV > price
+  const decision = async (FV: number, price: number): Promise<Result<boolean, string>> =>
+    Ok(FV > price)
 
   return { FV, decision }
 }
